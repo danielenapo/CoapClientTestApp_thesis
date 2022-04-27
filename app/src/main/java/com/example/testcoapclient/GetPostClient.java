@@ -1,4 +1,4 @@
-package com.example.coapplugin;
+package com.example.testcoapclient;
 
 import android.util.Log;
 
