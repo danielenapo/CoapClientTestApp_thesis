@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="192.168."
+        android:text="192.168.0.225"
         app:layout_constraintBottom_toTopOf="@+id/sendRequestButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

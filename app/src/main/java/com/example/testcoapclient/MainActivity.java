@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.coapplugin.GetPostClient;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,8 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private Button sendRequestButton;
     private EditText IPText;
     private String response;
-    private SimpleClient instance;
     private String ip;
+    private static final String resource="coffee";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +34,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ip=IPText.getText().toString();
-                data.setText(callServer());
+                response= callServer();
+                data.setText(response);
             }
         });
     }
 
     public String callServer(){
-        instance=SimpleClient.getInstance();
-        response= instance.getResponse(ip, "temperature");
-         return response;
+        GetPostClient client = new GetPostClient(ip, resource);
+        client.post();
+        return client.get();
     }
 
 
